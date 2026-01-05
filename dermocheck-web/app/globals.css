@@ -1,0 +1,5 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Eliminamos los estilos viejos, dejamos que Tailwind controle el fondo desde el config */
