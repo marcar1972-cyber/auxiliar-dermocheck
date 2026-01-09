@@ -8,6 +8,10 @@ export const metadata = {
   verification: {
     google: 'vwiFf3dmH5dQTVeeK4QPabkXSkHVzgETqTBT_31PMd0',
   },
+  // 👇 AQUÍ AGREGAMOS TU FAVICON NUEVO
+  icons: {
+    icon: '/logo_5.ico',
+  },
 }
 
 export default function RootLayout({ children }) {
