@@ -4,6 +4,10 @@ import Image from 'next/image';
 export const metadata = {
   title: 'DermoCheck Chile',
   description: 'Verificador de lotes cosméticos y guía de skincare.',
+  // 👇 AQUÍ ESTÁ LA VERIFICACIÓN DE GOOGLE QUE PEDISTE
+  verification: {
+    google: 'vwiFf3dmH5dQTVeeK4QPabkXSkHVzgETqTBT_31PMd0',
+  },
 }
 
 export default function RootLayout({ children }) {
@@ -28,9 +32,6 @@ export default function RootLayout({ children }) {
                 </div>
 
                 {/* MENÚ DE NAVEGACIÓN */}
-                {/* - mobile: 'justify-center' (centrado) y 'w-full' (ocupa todo el ancho).
-                   - PC: 'md:justify-end' (a la derecha) y 'md:w-auto' (tamaño normal).
-                */}
                 <nav className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 text-[11px] font-bold uppercase tracking-widest text-gray-600 w-full md:w-auto">
                     <a href="/" className="hover:text-emerald-600 transition-colors border-b-2 border-transparent hover:border-emerald-600 pb-1">
                         Verificador
