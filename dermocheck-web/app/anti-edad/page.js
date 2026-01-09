@@ -3,23 +3,9 @@ import { ExternalLink, Info, AlertTriangle, CheckCircle2 } from 'lucide-react';
 
 export default function AntiEdadPage() {
   return (
-    <main className="min-h-screen font-sans bg-cream text-dark">
+    <div className="min-h-screen font-sans bg-cream text-dark animate-in fade-in duration-500">
       
-      {/* HEADER (Consistente) */}
-      <header className="bg-white px-6 py-4 flex justify-between items-center border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div className="flex items-center gap-2">
-            <a href="/" className="w-48 relative h-12 block">
-                <Image src="/logo.jpg" alt="DermoCheck Logo" fill className="object-contain object-left" priority />
-            </a>
-        </div>
-        <nav className="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-600">
-          <a href="/" className="hover:text-emerald-600 transition-colors border-b-2 border-transparent hover:border-emerald-600 pb-1">Verificador</a>
-          <a href="/acne" className="hover:text-ruby transition-colors border-b-2 border-transparent hover:border-ruby pb-1">Acné & Piel Grasa</a>
-          <a href="/anti-manchas" className="hover:text-ruby transition-colors border-b-2 border-transparent hover:border-ruby pb-1">Anti-Manchas</a>
-          <a href="/anti-edad" className="text-ruby border-b-2 border-ruby pb-1">Anti-Edad</a>
-          <a href="/marcas" className="hover:text-ruby transition-colors border-b-2 border-transparent hover:border-ruby pb-1">Marcas</a>
-        </nav>
-      </header>
+      {/* HEADER ELIMINADO (Ya está en layout.js) */}
 
       {/* HERO SECTION: INTRODUCCIÓN EDUCATIVA */}
       <section className="bg-white px-6 py-16 border-b border-gray-100">
@@ -126,16 +112,17 @@ export default function AntiEdadPage() {
                             Lo mejor de dos mundos: Retinol encapsulado para tratar arrugas y SPF 30 para prevenir nuevas. Todo reforzado con ceramidas para no irritar.
                         </p>
                     </div>
-                    <button className="w-full border border-dark text-dark font-bold py-3 rounded uppercase tracking-widest hover:bg-dark hover:text-white transition-colors text-xs flex justify-center items-center gap-2">
+                    {/* TU LINK: CeraVe Skin Renewing Day */}
+                    <a href="https://amzn.to/3Z0tKkd" target="_blank" rel="noopener noreferrer" className="w-full border border-dark text-dark font-bold py-3 rounded uppercase tracking-widest hover:bg-dark hover:text-white transition-colors text-xs flex justify-center items-center gap-2">
                         Ver Oferta Amazon <ExternalLink size={14} />
-                    </button>
+                    </a>
                 </div>
             </div>
 
             {/* PRODUCTO 2: NEUTROGENA EYES */}
             <div className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col">
                 <div className="h-64 bg-white flex items-center justify-center relative p-6">
-                     <div className="relative w-full h-full">
+                      <div className="relative w-full h-full">
                         <Image 
                             src="/neutrogena-rapid-wrinkle.jpg" 
                             alt="Neutrogena Rapid Wrinkle Repair Eye Cream" 
@@ -153,16 +140,17 @@ export default function AntiEdadPage() {
                             Fórmula específica para la piel fina de los ojos. Utiliza "Retinol SA" acelerado para suavizar patas de gallo en tiempo récord.
                         </p>
                     </div>
-                    <button className="w-full border border-dark text-dark font-bold py-3 rounded uppercase tracking-widest hover:bg-dark hover:text-white transition-colors text-xs flex justify-center items-center gap-2">
+                    {/* TU LINK: Neutrogena Rapid Wrinkle */}
+                    <a href="https://amzn.to/4pwqU13" target="_blank" rel="noopener noreferrer" className="w-full border border-dark text-dark font-bold py-3 rounded uppercase tracking-widest hover:bg-dark hover:text-white transition-colors text-xs flex justify-center items-center gap-2">
                          Ver Oferta Amazon <ExternalLink size={14} />
-                    </button>
+                    </a>
                 </div>
             </div>
 
             {/* PRODUCTO 3: ROC NIGHT */}
             <div className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col">
                 <div className="h-64 bg-white flex items-center justify-center relative p-6">
-                     <div className="relative w-full h-full">
+                      <div className="relative w-full h-full">
                         <Image 
                             src="/roc-retinol-night.jpg" 
                             alt="RoC Retinol Correxion Deep Wrinkle" 
@@ -180,9 +168,10 @@ export default function AntiEdadPage() {
                             Un clásico de farmacia francesa. Tratamiento intensivo nocturno clínicamente probado para reducir arrugas profundas mientras duermes.
                         </p>
                     </div>
-                    <button className="w-full border border-dark text-dark font-bold py-3 rounded uppercase tracking-widest hover:bg-dark hover:text-white transition-colors text-xs flex justify-center items-center gap-2">
+                    {/* TU LINK: RoC Retinol Correxion */}
+                    <a href="https://amzn.to/4qJojSF" target="_blank" rel="noopener noreferrer" className="w-full border border-dark text-dark font-bold py-3 rounded uppercase tracking-widest hover:bg-dark hover:text-white transition-colors text-xs flex justify-center items-center gap-2">
                          Ver Oferta Amazon <ExternalLink size={14} />
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -199,15 +188,8 @@ export default function AntiEdadPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-dark text-gray-400 py-12 text-center text-sm border-t-4 border-ruby mt-auto">
-        <div className="w-32 h-8 relative mx-auto mb-6 opacity-80 hover:opacity-100 transition-opacity">
-            <Image src="/logo_4.webp" alt="DermoCheck" fill className="object-contain" />
-        </div>
-        <p className="mb-2">© 2025 DermoCheck Chile | Inteligencia en Cosmética</p>
-        <p className="text-xs opacity-50 mb-6">Aviso: Participamos en programas de afiliados.</p>
-        <a href="https://maczdev.vercel.app" target="_blank" className="text-emerald-500 font-mono text-xs hover:text-white transition-colors">Code by &lt; macz.dev /&gt;</a>
-      </footer>
-    </main>
+      {/* FOOTER ELIMINADO (Ya está en layout.js) */}
+      
+    </div>
   );
 }

@@ -1,25 +1,11 @@
 import Image from 'next/image';
-import { ShieldCheck, flask, Award, Zap, Microscope } from 'lucide-react';
+import { ShieldCheck, Zap } from 'lucide-react';
 
 export default function MarcasPage() {
   return (
-    <main className="min-h-screen font-sans bg-cream text-dark">
+    <div className="min-h-screen font-sans bg-cream text-dark animate-in fade-in duration-500">
       
-      {/* HEADER */}
-      <header className="bg-white px-6 py-4 flex justify-between items-center border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div className="flex items-center gap-2">
-            <a href="/" className="w-48 relative h-12 block">
-                <Image src="/logo.jpg" alt="DermoCheck Logo" fill className="object-contain object-left" priority />
-            </a>
-        </div>
-        <nav className="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-600">
-          <a href="/" className="hover:text-emerald-600 transition-colors border-b-2 border-transparent hover:border-emerald-600 pb-1">Verificador</a>
-          <a href="/acne" className="hover:text-ruby transition-colors border-b-2 border-transparent hover:border-ruby pb-1">Acné & Piel Grasa</a>
-          <a href="/anti-manchas" className="hover:text-ruby transition-colors border-b-2 border-transparent hover:border-ruby pb-1">Anti-Manchas</a>
-          <a href="/anti-edad" className="hover:text-ruby transition-colors border-b-2 border-transparent hover:border-ruby pb-1">Anti-Edad</a>
-          <a href="/marcas" className="text-ruby border-b-2 border-ruby pb-1">Marcas</a>
-        </nav>
-      </header>
+      {/* HEADER ELIMINADO (Ya está en layout.js) */}
 
       {/* HERO SECTION */}
       <section className="bg-dark text-white px-6 py-20 relative overflow-hidden">
@@ -33,7 +19,7 @@ export default function MarcasPage() {
         </div>
       </section>
 
-      {/* MARCA 1: CERAVE (Enfoque Barrera + Retinol) */}
+      {/* MARCA 1: CERAVE (Enfoque Barrera + Retinol Anti-Edad) */}
       <section className="py-20 px-6 max-w-6xl mx-auto border-b border-gray-200">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
@@ -69,10 +55,9 @@ export default function MarcasPage() {
                 </div>
             </div>
             <div className="order-1 md:order-2 h-64 md:h-96 bg-gray-100 rounded-2xl relative overflow-hidden flex items-center justify-center">
-                {/* Visual Placeholder for Brand Vibe */}
                 <div className="text-center p-8">
-                     <span className="text-6xl mb-4 block">💧</span>
-                     <p className="text-2xl font-serif font-bold text-gray-400">Ciencia de Ceramidas</p>
+                      <span className="text-6xl mb-4 block">💧</span>
+                      <p className="text-2xl font-serif font-bold text-gray-400">Ciencia de Ceramidas</p>
                 </div>
             </div>
         </div>
@@ -83,8 +68,8 @@ export default function MarcasPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="h-64 md:h-96 bg-gray-100 rounded-2xl relative overflow-hidden flex items-center justify-center">
                  <div className="text-center p-8">
-                     <span className="text-6xl mb-4 block">⚡</span>
-                     <p className="text-2xl font-serif font-bold text-gray-400">Acción Acelerada</p>
+                      <span className="text-6xl mb-4 block">⚡</span>
+                      <p className="text-2xl font-serif font-bold text-gray-400">Acción Acelerada</p>
                 </div>
             </div>
             <div>
@@ -149,16 +134,16 @@ export default function MarcasPage() {
             </div>
             <div className="order-1 md:order-2 h-64 md:h-96 bg-gray-100 rounded-2xl relative overflow-hidden flex items-center justify-center">
                  <div className="text-center p-8">
-                     <span className="text-6xl mb-4 block">🏛️</span>
-                     <p className="text-2xl font-serif font-bold text-gray-400">Legado Parisino</p>
+                      <span className="text-6xl mb-4 block">🏛️</span>
+                      <p className="text-2xl font-serif font-bold text-gray-400">Legado Parisino</p>
                 </div>
             </div>
         </div>
       </section>
 
-      {/* MENCIONES HONORÍFICAS: LRP & EUCERIN */}
+      {/* MENCIONES HONORÍFICAS: LRP & CERAVE (ANTI-MANCHAS) */}
       <section className="py-20 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-serif font-bold text-center mb-12">Innovación Dermatológica</h2>
+        <h2 className="text-3xl font-serif font-bold text-center mb-12">Innovación en Manchas</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {/* CARD La Roche-Posay */}
@@ -168,28 +153,29 @@ export default function MarcasPage() {
                     <span className="text-3xl">🛡️</span>
                 </div>
                 <p className="text-gray-600 text-sm mb-4 min-h-[60px]">
-                    Líderes en pieles sensibles. Famosos por su Agua Termal rica en Selenio y su nueva molécula patentada <strong>Melasyl™</strong> (presente en Mela-B3) que atrapa el pigmento antes de que manche.
+                    Líderes en pieles sensibles. Famosos por su Agua Termal y su nueva molécula patentada <strong>Melasyl™</strong> (presente en Mela-B3) que atrapa el pigmento antes de que manche.
                 </p>
                 <div className="bg-gray-50 p-3 rounded text-xs text-gray-500">
-                    <strong>Destacado:</strong> Anthelios (Protección Solar) y Effaclar (Acné).
+                    <strong>Destacado:</strong> Anthelios (Protección Solar) y Mela B3.
                 </div>
                 <a href="/anti-manchas" className="block text-center mt-6 text-ruby font-bold text-xs uppercase tracking-widest border border-ruby rounded py-2 hover:bg-ruby hover:text-white transition-colors">
                     Ver en Anti-Manchas
                 </a>
             </div>
 
-            {/* CARD Eucerin */}
+            {/* CARD CeraVe (Reemplazando a Eucerin) */}
             <div className="bg-white border border-gray-100 p-8 rounded-xl hover:shadow-lg transition-shadow">
                 <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-bold font-serif">Eucerin</h3>
-                    <span className="text-3xl">🔬</span>
+                    <h3 className="text-2xl font-bold font-serif">CeraVe</h3>
+                    <span className="text-3xl">💙</span>
                 </div>
                 <p className="text-gray-600 text-sm mb-4 min-h-[60px]">
-                    Ciencia alemana de precisión. Su patente <strong>Thiamidol</strong> revolucionó el tratamiento del melasma al inhibir la tirosinasa humana de forma segura y eficaz.
+                    Experiencia accesible y efectiva. Su <strong>Retinol Encapsulado</strong> (Resurfacing Serum) es el secreto para borrar marcas de acné antiguas restaurando la barrera natural.
                 </p>
                 <div className="bg-gray-50 p-3 rounded text-xs text-gray-500">
-                    <strong>Destacado:</strong> Anti-Pigment Dual Serum y DermoPure.
+                    <strong>Destacado:</strong> Resurfacing Retinol Serum.
                 </div>
+                {/* BOTÓN CORRECTO: LLEVA A ANTI-MANCHAS DONDE ESTÁ EL PRODUCTO */}
                 <a href="/anti-manchas" className="block text-center mt-6 text-ruby font-bold text-xs uppercase tracking-widest border border-ruby rounded py-2 hover:bg-ruby hover:text-white transition-colors">
                     Ver en Anti-Manchas
                 </a>
@@ -198,15 +184,8 @@ export default function MarcasPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-dark text-gray-400 py-12 text-center text-sm border-t-4 border-ruby mt-auto">
-        <div className="w-32 h-8 relative mx-auto mb-6 opacity-80 hover:opacity-100 transition-opacity">
-            <Image src="/logo_4.webp" alt="DermoCheck" fill className="object-contain" />
-        </div>
-        <p className="mb-2">© 2025 DermoCheck Chile | Inteligencia en Cosmética</p>
-        <p className="text-xs opacity-50 mb-6">Aviso: Participamos en programas de afiliados.</p>
-        <a href="https://maczdev.vercel.app" target="_blank" className="text-emerald-500 font-mono text-xs hover:text-white transition-colors">Code by &lt; macz.dev /&gt;</a>
-      </footer>
-    </main>
+      {/* FOOTER ELIMINADO (Ya está en layout.js) */}
+      
+    </div>
   );
 }
