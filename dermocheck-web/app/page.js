@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Search, BookOpen, AlertTriangle, CalendarDays, Info, ExternalLink, Clock, Package, ScanLine, ShieldCheck, Sun, Sparkles, Hourglass, CheckCircle2 } from 'lucide-react';
+// He agregado ChevronRight para la flecha del selector
+import { Search, BookOpen, AlertTriangle, CalendarDays, Info, ExternalLink, Clock, Package, ScanLine, ShieldCheck, Sun, Sparkles, Hourglass, CheckCircle2, ChevronRight } from 'lucide-react';
 
 export default function Home() {
   // --- ESTADOS ---
@@ -126,49 +127,87 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CALCULADORA */}
+      {/* CALCULADORA (MEJORADA UX: Encapsulada como "Máquina") */}
       <section id="calculator-section" className="py-20 bg-cream border-y border-gray-200 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ruby via-dark to-emerald-btn"></div>
         <div className="max-w-4xl mx-auto px-4 relative z-10 flex flex-col md:flex-row gap-12 items-start">
-            <div className="flex-1 text-left w-full">
+            
+            {/* COLUMNA IZQUIERDA: INFORMACIÓN */}
+            <div className="flex-1 text-left w-full pt-4">
                 <h2 className="font-serif text-3xl font-bold text-dark mb-4">¿Tu cosmético sigue fresco?</h2>
-                <p className="text-gray-600 mb-8 leading-relaxed">Ingresa el <strong>Batch Code</strong> (número de lote) para decodificar su fecha de producción.</p>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                   Decodifica el <strong>Batch Code</strong> para saber la fecha exacta de producción.
+                </p>
+                
+                {/* Caja de ayuda visual */}
                 <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h3 className="text-xs font-bold uppercase tracking-widest text-ruby mb-4 flex items-center gap-2"><ScanLine size={16}/> ¿Dónde encuentro el código?</h3>
+                    <h3 className="text-xs font-bold uppercase tracking-widest text-ruby mb-4 flex items-center gap-2"><ScanLine size={16}/> ¿Dónde está el código?</h3>
                     <div className="space-y-4">
-                        <div className="flex gap-3 items-center"><div className="bg-gray-100 p-2 rounded text-dark"><Package size={20}/></div><p className="text-xs text-gray-500"><strong>Cajas:</strong> Generalmente impreso en la solapa inferior (troquelado).</p></div>
-                        <div className="flex gap-3 items-center"><div className="bg-gray-100 p-2 rounded text-dark"><div className="w-5 h-5 border-2 border-dark rounded-full"></div></div><p className="text-xs text-gray-500"><strong>Botellas:</strong> Impreso en tinta azul/negra en la base del envase.</p></div>
+                        <div className="flex gap-3 items-center">
+                            <div className="bg-gray-100 p-2 rounded text-dark"><Package size={20}/></div>
+                            <div className="text-xs text-gray-500">
+                                <strong className="block text-dark">En Cajas</strong>
+                                Impreso en la solapa inferior (troquelado).
+                            </div>
+                        </div>
+                        <div className="flex gap-3 items-center">
+                            <div className="bg-gray-100 p-2 rounded text-dark"><div className="w-5 h-5 border-2 border-dark rounded-full"></div></div>
+                            <div className="text-xs text-gray-500">
+                                <strong className="block text-dark">En Envases</strong>
+                                Tinta azul/negra en la base o dorso.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div className="flex-1 w-full bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-                <div className="space-y-5">
+            {/* COLUMNA DERECHA: LA MÁQUINA (DISEÑO MEJORADO) */}
+            <div className="flex-1 w-full bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 transform transition-all hover:scale-[1.01]">
+                
+                {/* CABECERA DE LA "MÁQUINA" */}
+                <div className="bg-dark text-white p-4 flex items-center justify-between">
+                    <span className="text-xs font-black uppercase tracking-widest flex items-center gap-2">
+                        <Search size={14} className="text-ruby"/> Panel de Verificación
+                    </span>
+                    <div className="flex gap-1">
+                        <div className="w-2 h-2 rounded-full bg-ruby animate-pulse"></div>
+                        <div className="w-2 h-2 rounded-full bg-gray-600"></div>
+                    </div>
+                </div>
+
+                <div className="p-6 md:p-8 space-y-6">
                     <div>
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">1. Selecciona Marca</label>
                         <div className="relative">
-                            <select className="w-full bg-gray-50 border border-gray-200 p-3 rounded-lg font-bold text-dark focus:ring-2 focus:ring-ruby outline-none cursor-pointer" value={marca} onChange={(e) => setMarca(e.target.value)}>
+                            <select className="w-full bg-gray-50 border border-gray-200 p-3 rounded-lg font-bold text-dark focus:ring-2 focus:ring-ruby outline-none cursor-pointer appearance-none" value={marca} onChange={(e) => setMarca(e.target.value)}>
                                 <option value="Eucerin">Eucerin</option><option value="Nivea">Nivea</option><option value="Aquaphor">Aquaphor</option><option value="ISDIN">ISDIN</option><option value="Vichy">Vichy</option><option value="La Roche-Posay">La Roche-Posay</option>
                             </select>
+                            {/* Icono de flecha para el select */}
+                            <ChevronRight size={16} className="absolute right-3 top-4 text-gray-400 rotate-90 pointer-events-none"/>
                         </div>
                     </div>
+
                     {['Eucerin', 'Nivea'].includes(marca) && (
-                        <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
-                            <input type="checkbox" id="excepcion" checked={esExcepcion} onChange={(e) => setEsExcepcion(e.target.checked)} className="w-5 h-5 text-ruby rounded focus:ring-ruby border-gray-300 cursor-pointer accent-ruby"/>
-                            <label htmlFor="excepcion" className="text-sm text-gray-600 cursor-pointer select-none">¿Es <strong>Aquaphor</strong> o línea <strong>Baby</strong>?<span className="block text-[10px] text-gray-400">Estos productos duran menos (30 meses)</span></label>
+                        <div className="flex items-start gap-3 p-3 bg-ruby/5 rounded-lg border border-ruby/10">
+                            <input type="checkbox" id="excepcion" checked={esExcepcion} onChange={(e) => setEsExcepcion(e.target.checked)} className="mt-1 w-4 h-4 text-ruby rounded focus:ring-ruby border-gray-300 cursor-pointer accent-ruby"/>
+                            <label htmlFor="excepcion" className="text-xs text-gray-600 cursor-pointer select-none leading-tight">
+                                ¿Es <strong>Aquaphor</strong> o línea <strong>Baby</strong>?
+                                <span className="block text-[10px] text-ruby mt-0.5">Estos productos caducan antes (30 meses).</span>
+                            </label>
                         </div>
                     )}
+
                     <div>
-                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Ingresa Batch Code</label>
-                        <input type="text" placeholder={marca === 'ISDIN' ? "Ej: 42731n (Primeros 4 números)" : "Ej: 40229376 (Primeros 3 números)"} className="w-full bg-gray-50 border border-gray-200 p-3 rounded-lg font-mono text-lg uppercase focus:ring-2 focus:ring-ruby outline-none" value={lote} onChange={(e) => setLote(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && analizarLote()}/>
+                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">2. Ingresa Batch Code</label>
+                        <input type="text" placeholder={marca === 'ISDIN' ? "Ej: 42731n" : "Ej: 40229376"} className="w-full bg-gray-50 border border-gray-200 p-3 rounded-lg font-mono text-lg uppercase focus:ring-2 focus:ring-ruby outline-none placeholder:text-gray-300" value={lote} onChange={(e) => setLote(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && analizarLote()}/>
                     </div>
 
                     {resultado && (
-                        <div className="bg-emerald-50 border-l-4 border-emerald-btn p-4 shadow-sm animate-pulse">
+                        <div className="bg-emerald-50 border-l-4 border-emerald-btn p-4 shadow-sm animate-in zoom-in duration-300">
                             <div className="flex justify-between items-start">
                                 <div>
-                                    <p className="text-xs font-bold uppercase text-emerald-700 mb-1">Vencimiento Estimado</p>
-                                    <p className="text-3xl font-serif font-bold text-dark">{resultado.month} {resultado.year}</p>
+                                    <p className="text-[10px] font-bold uppercase text-emerald-700 mb-1 tracking-wider">Vencimiento Estimado</p>
+                                    <p className="text-2xl font-serif font-bold text-dark">{resultado.month} {resultado.year}</p>
                                 </div>
                             </div>
                             <div className="mt-3 pt-3 border-t border-emerald-100 flex flex-col gap-1 text-xs text-gray-500">
@@ -179,13 +218,15 @@ export default function Home() {
                     )}
                     
                     <div className="bg-gray-50 p-3 rounded text-[10px] text-gray-400 leading-tight flex gap-2 border border-gray-100">
-                        <AlertTriangle size={24} className="flex-shrink-0 text-gray-300"/>
-                        <p><strong>Aviso:</strong> Los algoritmos decodifican la fecha de producción. La vida útil puede variar según la fórmula exacta. Prevalece el símbolo PAO del envase.</p>
+                        <AlertTriangle size={16} className="flex-shrink-0 text-gray-300"/>
+                        <p>Los algoritmos son aproximados. Siempre revisa el olor y textura del producto.</p>
                     </div>
 
-                    {error && (<div className="bg-red-50 text-ruby p-3 rounded text-sm font-bold flex gap-2 items-center"><AlertTriangle size={16}/> {error}</div>)}
+                    {error && (<div className="bg-red-50 text-ruby p-3 rounded text-sm font-bold flex gap-2 items-center animate-pulse"><AlertTriangle size={16}/> {error}</div>)}
                     
-                    <button onClick={analizarLote} className="w-full bg-dark text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-ruby transition-colors shadow-lg">Verificar Ahora</button>
+                    <button onClick={analizarLote} className="w-full bg-dark text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-ruby transition-colors shadow-lg active:scale-95 duration-200">
+                        Verificar Ahora
+                    </button>
                 </div>
             </div>
         </div>
@@ -242,7 +283,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RECOMENDACIÓN FINAL (Eucerin Sun Advanced - Actualizada) */}
+      {/* RECOMENDACIÓN FINAL (Eucerin Sun Advanced) */}
       <section className="bg-white px-6 py-20 border-b border-gray-100 border-t border-gray-100">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 bg-gray-50 rounded-xl min-h-[400px] relative overflow-hidden group shadow-lg flex items-center justify-center">
@@ -250,12 +291,10 @@ export default function Home() {
             </div>
             <div className="flex-1">
                 <span className="text-ruby font-bold tracking-widest text-xs uppercase mb-2 block">Reseña del Farmacéutico</span>
-                {/* Título actualizado */}
                 <h2 className="font-serif text-4xl font-bold text-dark mb-4">Eucerin Sun Advanced Hydration</h2>
                 <div className="flex items-center gap-1 mb-6 text-yellow-500">
                     <span className="text-xs font-bold text-gray-400 mr-2">CALIFICACIÓN:</span>★★★★★ <span className="text-gray-400 text-xs">(4.8/5)</span>
                 </div>
-                {/* Descripción actualizada */}
                 <p className="text-gray-600 mb-4 text-lg leading-relaxed">
                     Protección solar superior SPF 50 formulada con <strong>Ácido Hialurónico</strong> y humectantes para una hidratación de 24 horas. Ideal para piel seca, dejando un acabado invisible sin residuos blancos.
                 </p>
