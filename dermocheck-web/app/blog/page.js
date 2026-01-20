@@ -1,6 +1,7 @@
 // src/app/blog/page.js
 import Link from 'next/link';
-import { blogPosts } from '@/data/posts'; // Importamos tus artículos
+// 👇 AQUÍ ESTÁ LA CORRECCIÓN: Usamos ruta relativa
+import { blogPosts } from '../data/posts'; 
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 export const metadata = {

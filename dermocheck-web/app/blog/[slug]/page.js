@@ -1,5 +1,7 @@
 // src/app/blog/[slug]/page.js
-import { blogPosts } from '@/data/posts';
+
+// 👇 AQUÍ ESTÁ LA CORRECCIÓN: Subimos 2 niveles para encontrar "data"
+import { blogPosts } from '../../data/posts';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, User } from 'lucide-react';
