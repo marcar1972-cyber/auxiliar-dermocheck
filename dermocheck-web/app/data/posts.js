@@ -107,5 +107,4 @@ export const blogPosts = [
           </div>
         `
       },
-];git add . 
-
+];
