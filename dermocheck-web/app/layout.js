@@ -9,9 +9,9 @@ export const metadata = {
   verification: {
     google: 'vwiFf3dmH5dQTVeeK4QPabkXSkHVzgETqTBT_31PMd0',
   },
-  // 👇 FAVICON
+  // 👇 FAVICON CORREGIDO
   icons: {
-    icon: '/logo_5.ico',
+    icon: '/favicon.ico', // Ahora apunta al nombre estándar que busca Google
   },
 }
 
