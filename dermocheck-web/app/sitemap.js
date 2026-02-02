@@ -1,34 +1,31 @@
-import { blogPosts } from './data/posts';
-
 export default function sitemap() {
-  const baseUrl = 'https://www.dermocheck.cl'; 
+  const baseUrl = 'https://www.dermocheck.cl';
+  const currentDate = new Date().toISOString();
 
-  // 1. Páginas Estáticas (SOLO SKINCARE Y COSMÉTICA)
+  // 1. Páginas Estáticas Principales
   const staticPages = [
-    '',              // Home (Verificador)
+    '',               // Home / Verificador
     '/acne',
     '/anti-manchas',
     '/anti-edad',
     '/marcas',
-    '/blog',         // Blog de ofertas (Eucerin, etc.)
-    // ❌ ELIMINADO: '/guias' (Pertenece a auxiliaresdefarmacia.cl)
+    '/blog',          // Índice que acabas de actualizar
   ].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'daily',
-    priority: route === '' ? 1 : 0.8, 
+    priority: route === '' ? 1.0 : 0.8,
   }));
 
-  // 2. Artículos del Blog (Solo los que estén en posts.js)
-  // Asegúrate que en posts.js solo haya artículos de dermocosmética/ahorro
-  const blogUrls = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(),
+  // 2. Artículos del Blog (Slugs exactos de tu post array)
+  const blogSlugs = ['ojeras', 'ofertas', 'espatula-vs-dedos'];
+  
+  const blogUrls = blogSlugs.map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified: currentDate,
     changeFrequency: 'weekly',
     priority: 0.9,
   }));
-
-  // ❌ ELIMINADO: Sección de Guías de Farmacia (Leyes, Decretos, Posología)
 
   return [...staticPages, ...blogUrls];
 }

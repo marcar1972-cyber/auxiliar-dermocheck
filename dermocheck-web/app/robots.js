@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://maczdev.vercel.app/sitemap.xml',
+    sitemap: 'https://www.dermocheck.cl/sitemap.xml',
   }
 }
