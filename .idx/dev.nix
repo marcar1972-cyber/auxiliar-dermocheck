@@ -1,0 +1,16 @@
+{ pkgs, ... }: {
+  channel = "stable-23.11";
+  packages = [ pkgs.nodejs_20 ];
+  idx = {
+    extensions = [ "svelte.svelte-vscode" "vue.volar" ];
+    previews = {
+      enable = true;
+      previews = {
+        web = {
+          command = ["npm" "run" "dev" "--prefix" "dermocheck-web" "--" "--port" "$PORT" "--hostname" "0.0.0.0"];
+          manager = "web";
+        };
+      };
+    };
+  };
+}
